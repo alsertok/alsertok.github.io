@@ -24,16 +24,17 @@
             background: #e2e8f0;
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            padding: 40px 25px;
-            max-width: 520px;           /* ← шире контейнер */
+            padding: 35px 15px;           /* меньше отступов по бокам на телефоне */
+            max-width: 100%;              /* на телефоне — во всю ширину */
             width: 100%;
-            margin: 20px;
+            margin: 15px;
             border: 1px solid #cbd5e1;
+            box-sizing: border-box;
         }
         
         h1 {
             margin: 0 0 8px 0;
-            font-size: 32px;
+            font-size: 31px;
             font-weight: 700;
             color: #0f172a;
         }
@@ -41,7 +42,7 @@
         .subtitle {
             font-size: 16.5px;
             color: #475569;
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
         
         .widget-wrapper {
@@ -50,15 +51,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             margin-bottom: 25px;
             background: #f8fafc;
-            padding: 22px 15px 15px;
+            padding: 18px 8px 10px;
         }
         
         iframe {
             display: block;
             margin: 0 auto;
-            width: 100%;
-            max-width: 480px;           /* ← таблица почти на всю ширину */
-            height: 410px;              /* чуть увеличил высоту, чтобы всё помещалось */
+            width: 100%;                  /* главное изменение — 100% ширины */
+            max-width: none;              /* убираем ограничение */
+            height: 420px;                /* чуть увеличил высоту, чтобы всё влезло */
             border: 0;
         }
         
@@ -75,6 +76,19 @@
         
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        /* На больших экранах (компьютер) оставляем разумную ширину */
+        @media (min-width: 520px) {
+            .container {
+                max-width: 520px;
+                padding: 40px 25px;
+                margin: 30px;
+            }
+            iframe {
+                max-width: 480px;
+                height: 410px;
+            }
         }
     </style>
 </head>
