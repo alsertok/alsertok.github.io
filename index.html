@@ -18,7 +18,7 @@
             background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 40%, #94a3b8 100%);
             display: flex;
             justify-content: center;
-            align-items: center; /* Центрирование по вертикали */
+            align-items: center;
             color: #1e2937;
         }
 
@@ -27,11 +27,13 @@
             background: #e2e8f0;
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            padding: 35px 30px;
-            max-width: 430px;
-            width: 100%;
-            margin: 20px;
+            /* Уменьшены боковые отступы (было 30px, стало 15px) */
+            padding: 35px 15px; 
+            max-width: 450px; /* Немного увеличил ширину */
+            width: 95%; 
+            margin: 10px;
             border: 1px solid #cbd5e1;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -54,16 +56,19 @@
             margin-bottom: 20px;
             background: #f8fafc;
             padding-top: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         iframe {
             display: block;
-            margin: 0 auto;
+            max-width: 100%;
         }
 
         .footer {
             font-size: 14px;
             color: #64748b;
+            margin-top: 10px;
         }
 
         .footer a {
