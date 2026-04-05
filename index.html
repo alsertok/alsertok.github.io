@@ -2,20 +2,22 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Важно для правильного масштабирования на мобильных устройствах -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Погода в Ухте — meteoblue</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
         
         body {
             margin: 0;
-            padding: 15px 0;
+            padding: 0;
             font-family: 'Roboto', Arial, sans-serif;
             background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 40%, #94a3b8 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             color: #1e2937;
         }
         
@@ -24,72 +26,43 @@
             background: #e2e8f0;
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            padding: 25px 18px;
-            max-width: 440px;        /* ограничиваем ширину на ПК */
-            width: 100%;
-            margin: 0 auto;
+            padding: 35px 20px;           /* чуть меньше отступов по бокам */
+            max-width: 430px;             /* максимальная ширина на больших экранах */
+            width: 100%;                  /* на маленьких экранах занимает почти всю ширину */
+            margin: 20px;
             border: 1px solid #cbd5e1;
         }
         
         h1 {
-            margin: 0 0 8px 0;
-            font-size: 28px;
+            margin: 0 0 10px 0;
+            font-size: 30px;
             font-weight: 700;
             color: #0f172a;
         }
         
         .subtitle {
-            font-size: 15.5px;
+            font-size: 16px;
             color: #475569;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
         }
         
         .widget-wrapper {
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             background: #f8fafc;
-            padding: 14px 10px;
+            padding-top: 20px;
         }
         
-        /* Масштабирование для мобильных */
-        .scale-wrapper {
-            width: 378px;
-            height: 393px;
+        iframe {
+            display: block;
             margin: 0 auto;
-            overflow: hidden;
-            border-radius: 12px;
-        }
-        
-        .scale-wrapper iframe {
-            width: 378px;
+            width: 100%;                  /* iframe адаптируется под контейнер */
+            max-width: 378px;             /* оригинальная ширина виджета meteoblue */
             height: 393px;
             border: 0;
-            transform-origin: top left;
-        }
-        
-        /* Для телефонов — сильное уменьшение */
-        @media (max-width: 480px) {
-            .container {
-                max-width: 100%;
-                padding: 18px 12px;
-                margin: 8px 10px;
-                border-radius: 20px;
-            }
-            
-            h1 {
-                font-size: 25px;
-            }
-            
-            .scale-wrapper {
-                width: 310px;
-                height: 322px;
-            }
-            
-            .scale-wrapper iframe {
-                transform: scale(0.79);   /* попробуй 0.77 или 0.81, если нужно подкрутить */
-            }
+            overflow: hidden;
         }
         
         .footer {
@@ -102,6 +75,17 @@
             text-decoration: none;
             font-weight: 500;
         }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Дополнительная защита от растягивания на очень широких экранах */
+        @media (min-width: 480px) {
+            .container {
+                padding: 35px 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -110,20 +94,23 @@
         <p class="subtitle">Прогноз на 7 дней</p>
       
         <div class="widget-wrapper">
-            <div class="scale-wrapper">
-                <iframe
-                    src="https://www.meteoblue.com/ru/погода/widget/daily/Ухта_Россия_479411?geoloc=fixed&tempunit=CELSIUS&windunit=METER_PER_SECOND&precipunit=MILLIMETER&days=7&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=1&windgust=1&winddirection=1&uv=0&humidity=0&precipitation=1&precipitationprobability=1&spot=1&pressure=0&layout=light&user_key=4ca9df6daa0f2812&embed_key=da9573987d5f4b9c&sig=2ed508d46e1fb957ad4abd416c7fd464d9912d39ac4411e542089903c283720f"
-                    frameborder="0"
-                    scrolling="NO"
-                    allowtransparency="true"
-                    sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
-                </iframe>
-            </div>
+            <iframe
+                src="https://www.meteoblue.com/ru/погода/widget/daily/Ухта_Россия_479411?geoloc=fixed&tempunit=CELSIUS&windunit=METER_PER_SECOND&precipunit=MILLIMETER&days=7&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=1&windgust=1&winddirection=1&uv=0&humidity=0&precipitation=1&precipitationprobability=1&spot=1&pressure=0&layout=light&user_key=4ca9df6daa0f2812&embed_key=da9573987d5f4b9c&sig=2ed508d46e1fb957ad4abd416c7fd464d9912d39ac4411e542089903c283720f"
+                frameborder="0"
+                scrolling="NO"
+                allowtransparency="true"
+                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
+                style="width: 100%; max-width: 378px; height: 393px;">
+            </iframe>
         </div>
         
         <div class="footer">
             Данные предоставлены 
-            <a href="https://www.meteoblue.com/ru/погода/неделя/index" target="_blank" rel="noopener">meteoblue</a>
+            <a href="https://www.meteoblue.com/ru/погода/неделя/index" 
+               target="_blank" 
+               rel="noopener">
+               meteoblue
+            </a>
         </div>
     </div>
 </body>
