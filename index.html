@@ -24,10 +24,10 @@
             background: #e2e8f0;
             border-radius: 24px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            padding: 35px 15px;           /* меньше отступов по бокам на телефоне */
-            max-width: 100%;              /* на телефоне — во всю ширину */
+            padding: 30px 12px;           /* очень маленькие боковые отступы на телефоне */
+            max-width: 100%;
             width: 100%;
-            margin: 15px;
+            margin: 12px;
             border: 1px solid #cbd5e1;
             box-sizing: border-box;
         }
@@ -42,7 +42,7 @@
         .subtitle {
             font-size: 16.5px;
             color: #475569;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
         }
         
         .widget-wrapper {
@@ -51,15 +51,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
             margin-bottom: 25px;
             background: #f8fafc;
-            padding: 18px 8px 10px;
+            padding: 15px 6px 8px;        /* минимальные отступы внутри */
         }
         
         iframe {
             display: block;
             margin: 0 auto;
-            width: 100%;                  /* главное изменение — 100% ширины */
-            max-width: none;              /* убираем ограничение */
-            height: 420px;                /* чуть увеличил высоту, чтобы всё влезло */
+            width: 100% !important;
+            max-width: none !important;
+            height: 430px;                /* чуть выше, чтобы всё влезло без прокрутки */
             border: 0;
         }
         
@@ -78,16 +78,19 @@
             text-decoration: underline;
         }
 
-        /* На больших экранах (компьютер) оставляем разумную ширину */
+        /* На компьютере и планшетах оставляем комфортную ширину */
         @media (min-width: 520px) {
             .container {
-                max-width: 520px;
+                max-width: 540px;
                 padding: 40px 25px;
-                margin: 30px;
+                margin: 30px auto;
             }
             iframe {
-                max-width: 480px;
-                height: 410px;
+                max-width: 500px;
+                height: 415px;
+            }
+            .widget-wrapper {
+                padding: 20px 15px 12px;
             }
         }
     </style>
