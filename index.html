@@ -25,20 +25,20 @@
         .container {
             text-align: center;
             background: #e2e8f0;
-            border-radius: 24px;
+            border-radius: 28px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            /* Уменьшены боковые отступы (было 30px, стало 15px) */
-            padding: 35px 15px; 
-            max-width: 450px; /* Немного увеличил ширину */
-            width: 95%; 
+            /* Минимальные отступы по бокам, чтобы карточка была шире */
+            padding: 30px 10px; 
+            max-width: 500px; 
+            width: 96%; 
             margin: 10px;
             border: 1px solid #cbd5e1;
             box-sizing: border-box;
         }
 
         h1 {
-            margin: 0 0 10px 0;
-            font-size: 30px;
+            margin: 0 0 5px 0;
+            font-size: 32px;
             font-weight: 700;
             color: #0f172a;
         }
@@ -46,39 +46,38 @@
         .subtitle {
             font-size: 16px;
             color: #475569;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .widget-wrapper {
-            border-radius: 18px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            background: #f8fafc;
-            padding-top: 20px;
+            background: #ffffff; /* Сделал фон виджета чисто белым для контраста */
+            padding-top: 15px;
             display: flex;
             justify-content: center;
+            width: 100%; /* Растягиваем обертку на всю ширину контейнера */
         }
 
         iframe {
             display: block;
-            max-width: 100%;
+            /* Позволяем iframe занять до 100% ширины, если экран узкий */
+            width: 100%; 
+            max-width: 378px; 
+            height: 393px;
         }
 
         .footer {
             font-size: 14px;
             color: #64748b;
-            margin-top: 10px;
         }
 
         .footer a {
             color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -95,7 +94,7 @@
                 scrolling="NO"
                 allowtransparency="true"
                 sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
-                style="width: 378px; height: 393px; border: 0; overflow: hidden;">
+                style="border: 0; overflow: hidden;">
             </iframe>
         </div>
 
