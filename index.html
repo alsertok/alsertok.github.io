@@ -27,11 +27,10 @@
             background: #e2e8f0;
             border-radius: 28px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            /* Уменьшаем боковые отступы до минимума для мобилок */
-            padding: 30px 8px; 
-            /* Ограничиваем ширину на ПК, чтобы было симметрично */
+            /* Ультра-тонкие отступы по бокам для мобильных */
+            padding: 30px 5px; 
             max-width: 440px; 
-            width: 96%; 
+            width: 98%; /* Занимает почти всю ширину экрана */
             margin: auto;
             border: 1px solid #cbd5e1;
             box-sizing: border-box;
@@ -63,11 +62,10 @@
             width: 100%;
         }
 
-        /* Главный секрет симметрии: iframe должен подстраиваться */
         iframe {
             display: block;
-            width: 100% !important; /* Растягивается на всю доступную ширину */
-            max-width: 378px; /* Но не больше стандартного размера виджета */
+            width: 100% !important;
+            max-width: 378px;
             height: 393px;
             border: none;
         }
@@ -83,10 +81,11 @@
             font-weight: 500;
         }
 
-        /* Настройка для больших экранов (ПК) */
-        @media (min-width: 600px) {
+        /* Настройка для компьютеров и планшетов */
+        @media (min-width: 480px) {
             .container {
-                padding: 35px 25px; /* На ПК возвращаем красивые широкие поля */
+                padding: 35px 25px; /* Возвращаем стандартные отступы для красоты на ПК */
+                width: 100%;
             }
         }
     </style>
