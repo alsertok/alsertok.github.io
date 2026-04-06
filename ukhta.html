@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода в Ухте — meteoblue</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 40%, #94a3b8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1e2937;
+        }
+
+        .container {
+            text-align: center;
+            background: #e2e8f0;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            /* Ультра-тонкие отступы по бокам для мобильных */
+            padding: 30px 5px; 
+            max-width: 440px; 
+            width: 98%; /* Занимает почти всю ширину экрана */
+            margin: auto;
+            border: 1px solid #cbd5e1;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .widget-wrapper {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background: #ffffff;
+            padding: 15px 0 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        iframe {
+            display: block;
+            width: 100% !important;
+            max-width: 378px;
+            height: 393px;
+            border: none;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Настройка для компьютеров и планшетов */
+        @media (min-width: 480px) {
+            .container {
+                padding: 35px 25px; /* Возвращаем стандартные отступы для красоты на ПК */
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Погода в Ухте</h1>
+        <p class="subtitle">Прогноз на 7 дней</p>
+        
+        <div class="widget-wrapper">
+            <iframe
+                src="https://www.meteoblue.com/ru/погода/widget/daily/Ухта_Россия_479411?geoloc=fixed&tempunit=CELSIUS&windunit=METER_PER_SECOND&precipunit=MILLIMETER&days=7&coloured=coloured&pictoicon=1&maxtemperature=1&mintemperature=1&windspeed=1&windgust=1&winddirection=1&uv=0&humidity=0&precipitation=1&precipitationprobability=1&spot=1&pressure=0&layout=light&user_key=4ca9df6daa0f2812&embed_key=da9573987d5f4b9c&sig=2ed508d46e1fb957ad4abd416c7fd464d9912d39ac4411e542089903c283720f"
+                frameborder="0"
+                scrolling="NO"
+                allowtransparency="true"
+                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
+            </iframe>
+        </div>
+
+        <div class="footer">
+            Данные предоставлены
+            <a href="https://www.meteoblue.com/ru/погода/неделя/index"
+               target="_blank"
+               rel="noopener">
+               meteoblue
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
