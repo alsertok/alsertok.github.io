@@ -27,18 +27,19 @@
             background: #e2e8f0;
             border-radius: 28px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            /* Минимальные отступы по бокам, чтобы карточка была шире */
-            padding: 30px 10px; 
-            max-width: 500px; 
+            /* Уменьшаем боковые отступы до минимума для мобилок */
+            padding: 30px 8px; 
+            /* Ограничиваем ширину на ПК, чтобы было симметрично */
+            max-width: 440px; 
             width: 96%; 
-            margin: 10px;
+            margin: auto;
             border: 1px solid #cbd5e1;
             box-sizing: border-box;
         }
 
         h1 {
             margin: 0 0 5px 0;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
             color: #0f172a;
         }
@@ -54,19 +55,21 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            background: #ffffff; /* Сделал фон виджета чисто белым для контраста */
-            padding-top: 15px;
+            background: #ffffff;
+            padding: 15px 0 0 0;
             display: flex;
             justify-content: center;
-            width: 100%; /* Растягиваем обертку на всю ширину контейнера */
+            align-items: center;
+            width: 100%;
         }
 
+        /* Главный секрет симметрии: iframe должен подстраиваться */
         iframe {
             display: block;
-            /* Позволяем iframe занять до 100% ширины, если экран узкий */
-            width: 100%; 
-            max-width: 378px; 
+            width: 100% !important; /* Растягивается на всю доступную ширину */
+            max-width: 378px; /* Но не больше стандартного размера виджета */
             height: 393px;
+            border: none;
         }
 
         .footer {
@@ -78,6 +81,13 @@
             color: #3b82f6;
             text-decoration: none;
             font-weight: 500;
+        }
+
+        /* Настройка для больших экранов (ПК) */
+        @media (min-width: 600px) {
+            .container {
+                padding: 35px 25px; /* На ПК возвращаем красивые широкие поля */
+            }
         }
     </style>
 </head>
@@ -93,8 +103,7 @@
                 frameborder="0"
                 scrolling="NO"
                 allowtransparency="true"
-                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"
-                style="border: 0; overflow: hidden;">
+                sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox">
             </iframe>
         </div>
 
